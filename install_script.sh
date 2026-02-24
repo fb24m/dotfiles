@@ -6,6 +6,7 @@ sudo dnf install gnome-shell --setopt=install_weak_deps=False -y
 
 sudo dnf install flatpak --setopt=install_weak_deps=False -y
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak update --refresh
 
 flatpak install flathub org.gnome.Showtime org.gnome.Loupe org.gnome.TextEditor net.nokyan.Resources com.mattjakeman.ExtensionManager org.gnome.baobab io.bassi.Amberol org.gnome.SimpleScan -y
 
@@ -51,9 +52,9 @@ gsettings set org.gnome.desktop.interface cursor-size 32
 
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc &&
 echo -e "[code]\nname=Visual Studio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\nautorefresh=1\ntype=rpm-md\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" | sudo tee /etc/yum.repos.d/vscode.repo > /dev/null
-sudo dnf install code
+sudo dnf install code -y
 
-sudo dnf install -y https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm
+sudo dnf install https://dl.google.com/linux/direct/google-chrome-stable_current_x86_64.rpm -y
 
 # Generate and set up theme
 
@@ -75,7 +76,8 @@ gnome-extensions enable panel-bottom@custom
 # dash to dock settings
 gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 25
 gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
-gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.0
+gsettings set org.gnome.shell.extensions.dash-to-dock transparency-mode 'FIXED'
+gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0
 gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
 gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
 gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DOTS'
