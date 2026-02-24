@@ -5,7 +5,7 @@ sudo dnf install gnome-shell --setopt=install_weak_deps=False -y
 # Minimal gnome apps
 
 sudo dnf install flatpak --setopt=install_weak_deps=False -y
-flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
 flatpak install flathub org.gnome.Showtime org.gnome.Loupe org.gnome.TextEditor net.nokyan.Resources com.mattjakeman.ExtensionManager org.gnome.baobab io.bassi.Amberol org.gnome.SimpleScan -y
 
