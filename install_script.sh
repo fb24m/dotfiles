@@ -7,9 +7,9 @@ sudo dnf install gnome-shell --setopt=install_weak_deps=False -y
 sudo dnf install flatpak --setopt=install_weak_deps=False -y
 flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
 
-flatpak install flathub org.gnome.Showtime org.gnome.Loupe org.gnome.TextEditor net.nokyan.Resources com.mattjakeman.ExtensionManager org.gnome.baobab io.bassi.Amberol org.gnome.SimpleScan
+flatpak install flathub org.gnome.Showtime org.gnome.Loupe org.gnome.TextEditor net.nokyan.Resources com.mattjakeman.ExtensionManager org.gnome.baobab io.bassi.Amberol org.gnome.SimpleScan -y
 
-sudo dnf install gnome-weather gnome-calendar gnome-clocks --setopt=install_weak_deps=False -y
+sudo dnf install gnome-weather gnome-calendar gnome-clocks gnome-terminal gnome-calculator nautilus gnome-shell-extension-user-theme gnome-shell-extension-dash-to-dock --setopt=install_weak_deps=False -y
 
 # Install power-profiles-daemon instead of tuned
 sudo dnf install power-profiles-daemon --setopt=install_weak_deps=False -y
@@ -71,3 +71,13 @@ matugen color hex "#ffffff" # IMAGE HERE
 dconf write /org/gnome/shell/extensions/user-theme/name "'Material You'"
 
 gnome-extensions enable panel-bottom@custom
+
+# dash to dock settings
+gsettings set org.gnome.shell.extensions.dash-to-dock dash-max-icon-size 25
+gsettings set org.gnome.shell.extensions.dash-to-dock custom-theme-shrink true
+gsettings set org.gnome.shell.extensions.dash-to-dock background-opacity 0.0
+gsettings set org.gnome.shell.extensions.dash-to-dock show-apps-at-top true
+gsettings set org.gnome.shell.extensions.dash-to-dock dock-fixed true
+gsettings set org.gnome.shell.extensions.dash-to-dock running-indicator-style 'DOTS'
+
+sudo systemctl enable --now gdm
