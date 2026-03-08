@@ -6,7 +6,6 @@ sudo dnf install gnome-shell --setopt=install_weak_deps=False -y
 
 sudo dnf install flatpak --setopt=install_weak_deps=False -y
 sudo flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
-flatpak update --refresh
 
 flatpak install flathub org.gnome.Showtime org.gnome.Loupe org.gnome.TextEditor net.nokyan.Resources com.mattjakeman.ExtensionManager org.gnome.baobab io.bassi.Amberol org.gnome.SimpleScan -y
 
@@ -15,8 +14,10 @@ sudo dnf install gnome-weather gnome-calendar gnome-clocks gnome-terminal gnome-
 # Install power-profiles-daemon instead of tuned
 sudo dnf install power-profiles-daemon --setopt=install_weak_deps=False -y
 
-sudo dnf copr enable solopasha/hyprland -y
 sudo dnf copr enable atim/starship -y
+
+sudo dnf install https://raw.githubusercontent.com/fb24m/dotfiles/main/rpm/matugen.rpm
+sudo dnf install https://raw.githubusercontent.com/fb24m/dotfiles/main/rpm/openh264.rpm
 
 sudo dnf install kitty matugen starship ulauncher \
 	python3-pip tar --setopt=install_weak_deps=False -y
