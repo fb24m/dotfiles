@@ -14,12 +14,11 @@ sudo dnf install gnome-weather gnome-calendar gnome-clocks gnome-terminal gnome-
 # Install power-profiles-daemon instead of tuned
 sudo dnf install power-profiles-daemon --setopt=install_weak_deps=False -y
 
-sudo dnf copr enable atim/starship -y
-
 sudo dnf install https://raw.githubusercontent.com/fb24m/dotfiles/main/rpm/matugen.rpm
+sudo dnf install https://raw.githubusercontent.com/fb24m/dotfiles/main/rpm/starship.rpm
 sudo dnf install https://raw.githubusercontent.com/fb24m/dotfiles/main/rpm/openh264.rpm
 
-sudo dnf install kitty matugen starship ulauncher \
+sudo dnf install kitty ulauncher \
 	python3-pip tar --setopt=install_weak_deps=False -y
 
 export PATH="$HOME/.local/bin:$PATH"
